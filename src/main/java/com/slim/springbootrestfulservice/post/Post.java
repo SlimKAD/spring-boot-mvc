@@ -2,8 +2,12 @@ package com.slim.springbootrestfulservice.post;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.slim.springbootrestfulservice.user.User;
+import javax.persistence.ManyToOne;
+
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
+import java.util.Optional;
 
 @Entity
 public class Post {
@@ -11,6 +15,8 @@ public class Post {
     @Id
     @GeneratedValue
     private Integer id;
+
+    @Size(min = 5)
     private String description;
 
     @ManyToOne(fetch= FetchType.LAZY)
